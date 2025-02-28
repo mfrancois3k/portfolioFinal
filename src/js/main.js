@@ -1,6 +1,4 @@
-// Import the main SCSS file
 import '../scss/main.scss';
-
 import { initNavigation } from './navigation';
 import { initCube } from './cube';
 import { initAnimations } from './animations';
