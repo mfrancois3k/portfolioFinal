@@ -1,0 +1,105 @@
+.title {
+  font-family: Poppins, sans-serif;
+  font-size: 76px;
+  line-height: 76px;
+  letter-spacing: normal;
+  color: $accent--color;
+  font-weight: 800;
+  text-align: left;
+  position: relative;
+}
+
+.outline_text {
+  display: inline-block;
+  font-family: Poppins, sans-serif;
+  margin-left: 25px;
+  font-size: 76px;
+  line-height: 76px;
+  text-align: left;
+  letter-spacing: 15px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px white;
+  position: relative;
+  top: -13px;
+}
+
+.small-text {
+  position: relative;
+  top: 5px;
+  left: 205px;
+  font-family: system-ui;
+  font-size: 15px;
+  color: #fff;
+  overflow: hidden;
+
+  &::before {
+    content: '_____';
+    height: 2px;
+    width: 15px;
+    color: $accent--color;
+    position: relative;
+    top: -4px;
+    left: -20px;
+  }
+}
+
+.contents_container {
+  display: flex;
+  gap: 3px;
+  padding: 10px;
+}
+
+.side_links {
+  position: fixed;
+  left: 60px;
+  bottom: 10px;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+}
+
+.hscroll-line {
+  position: relative;
+  width: 60px;
+  height: 1px;
+  overflow: hidden;
+  margin-left: 20px;
+  order: -1;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &::after {
+    background: $accent--color;
+    animation: scrollLine 2s infinite;
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
