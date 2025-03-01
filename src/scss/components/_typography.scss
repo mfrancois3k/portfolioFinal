@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+.title {
+  font-family: Poppins, sans-serif;
+  font-size: 76px;
+  line-height: 76px;
+  letter-spacing: normal;
+  color: $accent--color;
+  font-weight: 800;
+  text-align: left;
+  position: relative;
+}
+
+.outline_text {
+  display: inline-block;
+  font-family: Poppins, sans-serif;
+  margin-left: 25px;
+  font-size: 76px;
+  line-height: 76px;
+  text-align: left;
+  letter-spacing: 15px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px white;
+  position: relative;
+  top: -13px;
+}
+
+h3 {
+  position: relative;
+  top: 5px;
+  left: 205px;
+  font-family: system-ui;
+  font-size: 15px;
+  color: #fff;
+  overflow: hidden;
+
+  &::before {
+    content: '_____';
+    height: 2px;
+    width: 15px;
+    color: $accent--color;
+    position: relative;
+    top: -4px;
+    left: -20px;
+  }
+}

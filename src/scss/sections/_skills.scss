@@ -1,0 +1,88 @@
+#section-3 {
+  position: relative;
+
+  .text {
+    text-transform: capitalize;
+    font-size: 150px;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    opacity: 0.1;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+  }
+
+  .sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+
+  .section {
+    padding: 1rem 0;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 3rem;
+      margin-top: -1rem;
+      gap: 1rem;
+    }
+
+    &-number {
+      color: $accent--color;
+      font-weight: bold;
+      min-width: 30px;
+    }
+
+    &-title {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      color: #eee;
+      transition: transform .3s ease;
+
+      &:hover {
+        transform: translateX(10px);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

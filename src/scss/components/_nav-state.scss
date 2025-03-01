@@ -1,0 +1,43 @@
+
+@use '../abstracts' as *;
+
+body.nav-active {
+  $menu--items--count: 4;
+  
+  .menu-icon {
+    &__line {
+      background-color: #000;
+      transform: translateX(0px) rotate(-45deg);
+    }
+    &__line-left {
+      transform: translateX(1px) rotate(45deg);
+    }
+    &__line-right {
+      transform: translateX(-2px) rotate(45deg);
+    }
+  }
+
+  .nav {
+    visibility: visible;
+    &:before,
+    &:after {
+      transform: translateX(0%) translateY(0%);
+    }
+    &:after {
+      transition-delay: 0.1s;
+    }
+    &:before {
+      transition-delay: 0s;
+    }
+    &__list-item {
+      opacity: 1;
+      transform: translateX(0%);
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+      @for $i from 0 through $menu--items--count {
+        &:nth-child(#{$i}) {
+          transition-delay: $transition--length * $i / 8 + 0.5 + s;
+        }
+      }
+    }
+  }
+}
