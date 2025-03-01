@@ -4,7 +4,7 @@ import { resolve } from 'path'
 export default defineConfig({
   base: '/',  // This ensures proper path resolution
   build: {
-    outDir: 'dist',
+    outDir: '.', // Build to root instead of dist
     assetsDir: 'assets',
     rollupOptions: {
       input: {
