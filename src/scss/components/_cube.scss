@@ -3,29 +3,6 @@
   width: 300px;
   height: 300px;
   transform-style: preserve-3d;
-  transition: all 0.5s ease;
-
-  &.hovered {
-    width: 400px;
-    height: 400px;
-
-    .cube {
-      width: 400px;
-      height: 400px;
-
-      .face {
-        width: 400px;
-        height: 400px;
-      }
-
-      .front { transform: rotateY(0deg) translateZ(200px); }
-      .back { transform: rotateY(180deg) translateZ(200px); }
-      .left { transform: rotateY(-90deg) translateZ(200px); }
-      .right { transform: rotateY(90deg) translateZ(200px); }
-      .top { transform: rotateX(90deg) translateZ(200px); }
-      .bottom { transform: rotateX(-90deg) translateZ(200px); }
-    }
-  }
 }
 
 .cube {
@@ -34,7 +11,6 @@
   height: 100%;
   transform-style: preserve-3d;
   z-index: -2;
-  transition: all 0.5s ease;
 }
 
 .face {
@@ -45,7 +21,6 @@
   perspective: 500px;
   background: rgba(76, 0, 130, 0.1);
   border: 1px solid rgba(47, 79, 79, 0.1);
-  transition: all 0.5s ease;
 }
 
 .front { transform: rotateY(0deg) translateZ(150px); }
@@ -71,36 +46,6 @@
       background: $accent--color;
       z-index: 10000;
       filter: drop-shadow(0 0 10px rgba(153, 50, 204, 0.6)) blur(2px);
-    }
-  }
-}
-
-// Media query for smaller screens
-@media (max-width: 768px) {
-  .scene {
-    width: 200px;
-    height: 200px;
-
-    &.hovered {
-      width: 300px;
-      height: 300px;
-
-      .cube {
-        width: 300px;
-        height: 300px;
-
-        .face {
-          width: 300px;
-          height: 300px;
-        }
-
-        .front { transform: rotateY(0deg) translateZ(150px); }
-        .back { transform: rotateY(180deg) translateZ(150px); }
-        .left { transform: rotateY(-90deg) translateZ(150px); }
-        .right { transform: rotateY(90deg) translateZ(150px); }
-        .top { transform: rotateX(90deg) translateZ(150px); }
-        .bottom { transform: rotateX(-90deg) translateZ(150px); }
-      }
     }
   }
 }

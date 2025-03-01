@@ -1291,8 +1291,8 @@ svg {
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%,50%);
-    
   }
+
   }
 @media (max-width: 768px) {
   main {
@@ -1330,6 +1330,7 @@ svg {
     height: auto !important;
     width: 100%;
   }
+  
 }
 @media (max-width: 750px) {
   .contents_container {
