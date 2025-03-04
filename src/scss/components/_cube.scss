@@ -49,3 +49,25 @@
     }
   }
 }
+
+.scene:hover .grid span.active {
+  background: $accent--color;
+  filter: drop-shadow(0 0 15px rgba(249, 248, 113, 0.8)) blur(1px);
+}
+
+.highlight-face .grid span.active {
+  background: #fff;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) blur(1px);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
