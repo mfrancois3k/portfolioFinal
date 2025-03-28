@@ -2,11 +2,11 @@ import '../scss/main.scss';
 import { initNavigation } from './navigation';
 import { initCube } from './cube';
 import { initAnimations } from './animations';
+import { initPreloader } from './preloader.jsx';
 
-// import hljs from 'highlight.js';
-// import 'highlight.js/styles/default.css'; // Optional, choose a style
+// Initialize preloader first
+initPreloader();
 
-// import { initTab } from './tab';
 
 document.addEventListener('DOMContentLoaded', () => {
   // initTab();
