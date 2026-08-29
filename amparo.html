@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amparo — Case Study — Michael Francois</title>
+  <meta name="description" content="Case study: Amparo — a free bilingual traffic-stop rights app, designed and shipped solo by Michael Francois." />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    :root { --yellow:#f5f572; --ink:#111111; --cream:#faf6ec; --olive:#b9b45a; --dim:#d9d68a; --bw:4px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:var(--yellow); color:var(--ink); font-family:"Space Mono",monospace; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px dashed var(--ink); outline-offset:3px; }
+    .band-dark a:focus-visible { outline-color:var(--yellow); }
+    img { max-width:100%; display:block; }
+    header { display:flex; align-items:stretch; border-bottom:var(--bw) solid var(--ink); position:sticky; top:0; z-index:50; background:var(--yellow); }
+    .logo { padding:16px 22px; border-right:var(--bw) solid var(--ink); font-family:"Archivo Black",sans-serif; font-size:20px; }
+    .crumb { flex:1; display:flex; align-items:center; padding:0 22px; font-size:12px; letter-spacing:.06em; }
+    .back-btn { display:flex; align-items:center; padding:0 26px; border-left:var(--bw) solid var(--ink); background:var(--ink); color:var(--yellow); font-weight:700; font-size:13px; }
+    .back-btn:hover { background:#000; }
+    .case-hero { position:relative; overflow:hidden; padding:clamp(48px,7vw,90px) clamp(22px,4vw,48px); border-bottom:var(--bw) solid var(--ink); display:flex; flex-direction:column; gap:20px; }
+    .ghost { position:absolute; pointer-events:none; user-select:none; font-family:"Archivo Black",sans-serif; color:rgba(0,0,0,0.055); white-space:nowrap; font-size:clamp(110px,20vw,280px); line-height:1; z-index:0; }
+    .band-dark .ghost { color:rgba(245,245,114,0.05); }
+    .case-hero h1 { position:relative; z-index:1; font-family:"Archivo Black",sans-serif; font-size:clamp(44px,7vw,96px); line-height:.92; text-transform:uppercase; margin:0; }
+    .case-hero .sub { position:relative; z-index:1; font-size:15px; line-height:1.6; max-width:640px; }
+    .chip-row { position:relative; z-index:1; display:flex; flex-wrap:wrap; }
+    .chip-row span { border:3px solid var(--ink); padding:8px 16px; font-size:12px; font-weight:700; margin:0 -3px -3px 0; }
+    .chip-row span.hot { background:var(--ink); color:var(--yellow); }
+    .btn-row { position:relative; z-index:1; display:flex; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:14px 24px; border:3px solid var(--ink); font-weight:700; font-size:13px; background:transparent; color:var(--ink); }
+    .btn + .btn { border-left:0; }
+    .btn-solid { background:var(--ink); color:var(--yellow); }
+    .btn:hover { background:var(--ink); color:var(--yellow); }
+    .btn-solid:hover { background:#000; }
+    .band-dark .btn { border-color:var(--yellow); color:var(--yellow); }
+    .band-dark .btn:hover { background:var(--yellow); color:var(--ink); }
+    section { position:relative; overflow:hidden; border-bottom:var(--bw) solid var(--ink); }
+    .band-dark { background:var(--ink); color:var(--yellow); }
+    .sec-head { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:20px clamp(22px,4vw,48px); border-bottom:var(--bw) solid var(--ink); position:relative; z-index:1; }
+    .band-dark .sec-head { border-bottom:2px solid #2a2a1a; }
+    .sec-head h2 { font-family:"Archivo Black",sans-serif; font-size:clamp(20px,2.6vw,28px); margin:0; text-transform:uppercase; }
+    .sec-head .side-note { font-size:12px; font-weight:700; }
+    .split { display:flex; position:relative; z-index:1; }
+    .shot { flex:1; border-right:var(--bw) solid var(--ink); display:flex; align-items:stretch; background:#e9e9d8; }
+    .band-dark .shot { border-right:2px solid #2a2a1a; }
+    .shot img { width:100%; height:100%; object-fit:cover; object-position:top; }
+    .shot .noshot { width:100%; min-height:320px; display:flex; align-items:center; justify-content:center; text-align:center; font-family:"Archivo Black",sans-serif; font-size:clamp(18px,2vw,26px); padding:30px; text-transform:uppercase; }
+    .points { flex:1.1; display:flex; flex-direction:column; }
+    .point { padding:22px clamp(22px,3vw,34px); border-bottom:3px solid var(--ink); }
+    .band-dark .point { border-bottom:2px solid #2a2a1a; }
+    .point:last-child { border-bottom:0; }
+    .point b { display:block; font-family:"Archivo Black",sans-serif; font-size:15px; text-transform:uppercase; margin-bottom:6px; }
+    .point p { margin:0; font-size:13px; line-height:1.65; }
+    .band-dark .point p { color:var(--dim); }
+    .stack-line { padding:16px clamp(22px,4vw,48px); font-size:12px; font-weight:700; letter-spacing:.08em; color:var(--olive); border-bottom:2px solid #2a2a1a; position:relative; z-index:1; }
+    .next-strip { display:flex; }
+    .next-strip a { flex:1; padding:26px clamp(22px,4vw,48px); font-family:"Archivo Black",sans-serif; font-size:clamp(16px,2vw,22px); text-transform:uppercase; }
+    .next-strip a + a { border-left:var(--bw) solid var(--ink); text-align:right; }
+    .next-strip a:hover { background:var(--ink); color:var(--yellow); }
+    footer { background:var(--ink); color:var(--olive); padding:20px clamp(22px,4vw,48px); display:flex; gap:24px; flex-wrap:wrap; font-size:12px; font-weight:700; }
+    @media (max-width:860px) {
+      .split { flex-direction:column; }
+      .shot { border-right:0; border-bottom:var(--bw) solid var(--ink); min-height:280px; }
+      .band-dark .shot { border-bottom:2px solid #2a2a1a; }
+      .btn-row { flex-direction:column; align-items:stretch; }
+      .btn + .btn { border-left:3px solid var(--ink); border-top:0; }
+      .band-dark .btn + .btn { border-left-color:var(--yellow); }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">MF</a>
+    <div class="crumb">CASE STUDY — AMPARO</div>
+    <a class="back-btn" href="/#work">← ALL WORK</a>
+  </header>
+
+  <div class="case-hero">
+    <div class="ghost" style="top:40px;left:-30px;" aria-hidden="true">AMPARO</div>
+    <h1>Amparo</h1>
+    <p class="sub">A free bilingual (EN/ES) web app that helps drivers know and practice their rights during traffic stops — live at amparohq.com, designed, built, and shipped solo.</p>
+    <div class="chip-row"><span class="hot">LIVE PRODUCT</span><span class="">EN / ES</span><span class="">TX · NY · GA</span><span class="">SOLO BUILD</span></div>
+    <div class="btn-row"><a class="btn btn-solid" href="https://www.amparohq.com" target=_blank rel=noopener>OPEN AMPAROHQ.COM</a><a class="btn" href="https://github.com/mfrancois3k/amparo" target=_blank rel=noopener>VIEW SOURCE</a></div>
+  </div>
+
+  <section>
+    <div class="ghost" style="top:20px;right:-20px;left:auto;" aria-hidden="true">UI</div>
+    <div class="sec-head"><h2>01 / The UI</h2><span class="side-note">DESIGNED FOR A STRESSED USER</span></div>
+    
+    <div class="split">
+      <div class="shot"><img src="/assets/case/amparo.jpg" alt="Amparo home screen — Practice the stop before it happens" /></div>
+      <div class="points">
+<div class="point"><b>Rehearsal-first hero</b><p>“Practice the stop before it happens.” The product's core action leads the page — rehearse out loud with a real officer's lines until the words come without thinking.</p></div>
+<div class="point"><b>Privacy as visible UI</b><p>The first banner a user sees: free, everything stays on this phone, photos never upload. For this audience, trust is a design requirement, not a legal footnote.</p></div>
+<div class="point"><b>Bilingual by default</b><p>EN/ES toggle sits top-right on every screen — Spanish is a first-class experience, not a translation afterthought.</p></div>
+<div class="point"><b>Built for the glovebox</b><p>The app builds a printable pack for the car, with an expiry reminder when laws may have changed — the UI extends to paper.</p></div>
+<div class="point"><b>Calm, warm palette</b><p>Cream ground, navy ink, plain language. A legal-rights tool that reads like help, not like a courtroom.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="ghost" style="top:20px;right:-20px;left:auto;" aria-hidden="true">CODE</div>
+    <div class="sec-head"><h2>02 / The Engineering</h2><span class="side-note">PRIVACY-FIRST, AUTOMATED</span></div>
+    <div class="stack-line">REACT · TYPESCRIPT · STATIC BUILD · VERCEL · SCHEDULED PIPELINES</div>
+    <div class="split">
+      <div class="shot"><div class="noshot" style="background:#101115;color:#f5f572;">STATIC REACT + TS<br>OFFLINE-CAPABLE<br>AUTOMATED PIPELINES</div></div>
+      <div class="points">
+<div class="point"><b>Static React + TypeScript</b><p>Ships as a static build — fast, cheap to host, and nothing sensitive ever touches a server. Deployed on Vercel.</p></div>
+<div class="point"><b>Device-local by design</b><p>Works offline; user data and photos stay on the device. No account required to use the core product.</p></div>
+<div class="point"><b>State statute schema</b><p>Rights content is structured per-state (TX, NY, GA) so legal differences are data, not copy-paste — new states are schema entries.</p></div>
+<div class="point"><b>Automated content pipelines</b><p>Scheduled jobs commit daily content updates and statute checks to the repo — the 270+ commit history includes the automation doing its rounds.</p></div>
+<div class="point"><b>Bilingual content model</b><p>EN and ES content are parallel structures, keeping both languages in sync as laws and copy evolve.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="next-strip"><a href="/#work">← All work</a><a href="/deck-genius.html">Deck Genius →</a></div>
+  <footer><span>© 2026 MICHAEL FRANCOIS</span><span>BROOKLYN, NY</span><span>MFRANCOIS3K@GMAIL.COM</span></footer>
+</body>
+</html>
