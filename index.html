@@ -2,9 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michael Francois - Portfolio </title>
+    <title>Michael Francois — Web & HTML Email Developer</title>
+    <style>
+      @media (prefers-reduced-motion: reduce){
+        .loader{display:none !important;}
+        [data-aos]{opacity:1 !important;transform:none !important;transition:none !important;animation:none !important;}
+        *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+      }
+    </style>
+    <meta name="description" content="Michael Francois is a web and HTML email developer in Brooklyn, NY — React, Node.js, and cross-client email templates. Builder of Amparo (amparohq.com). Open to full-time and freelance work." />
+    <meta property="og:title" content="Michael Francois — Web & HTML Email Developer" />
+    <meta property="og:description" content="Brooklyn-based web & HTML email developer. React, Node.js, Litmus-tested email templates. Builder of Amparo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.michaelfrancois.net" />
+    <meta property="og:image" content="https://www.michaelfrancois.net/assets/amparo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     
 
     <!-- AOS CSS  -->
@@ -32,7 +46,7 @@
       color: #fff;
       width: 100%;
       height: 100vh;
-      animation: backgroundChange .5s linear 3s forwards;
+      animation: backgroundChange .5s linear .9s forwards;
       z-index: 9999;
     }
 
@@ -45,7 +59,7 @@
   font-weight: 800;
   width: fit-content;
   display: flex;
-  animation: colorChange .8s linear 3s forwards;
+  animation: colorChange .8s linear .9s forwards;
 }
 
 .loaded-text {
@@ -56,7 +70,7 @@
 .loading-text {
   width: 0;
   overflow: hidden;
-  animation: expand 3s linear 1.5s forwards;
+  animation: expand .9s linear .6s forwards;
   white-space: nowrap;
 }
 
@@ -84,9 +98,9 @@
 
     <script>
       const loader = document.querySelector( ".loader");
-      setInterval(function(){
+      setTimeout(function(){
         loader.style.display = "none";
-      },5500)
+      },1600)
     </script>
     
     
@@ -122,14 +136,19 @@
     <div id="section-1" class="site-content">
       <div class="side_links">
         <a href="">Scroll Down</a>
-        <a class="up" href="">twitter</a>
+        <a class="up" href="https://github.com/mfrancois3k" target="_blank" rel="noopener">github</a>
         <a class="up" href="https://www.linkedin.com/in/michael-francois-42492a99" target="_blank">Linkedin</a>
         <span class="hscroll-line"></span>
       </div>
       
       <div class="contents_container">
-        <h3 class="small-text ">HTML EMAIL DEVELOPER</h3>
+        <h3 class="small-text ">WEB &amp; HTML EMAIL DEVELOPER — BROOKLYN, NY</h3>
         <h1 class="title ">Michael <br><span class="outline_text ">Francois</span></h1>
+        <div class="hero-ctas" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:22px;position:relative;z-index:5;">
+          <a href="/assets/Michael-Francois-Resume.pdf" download style="background:#f5f572;color:#16181d;font-weight:700;border-radius:6px;text-decoration:none;font-size:14px;letter-spacing:.04em;display:inline-flex;align-items:center;height:44px;padding:0 20px;flex:0 0 auto;width:auto;line-height:1;">Download Resume</a>
+          <a href="https://www.linkedin.com/in/michael-francois-42492a99" target="_blank" rel="noopener" style="border:1.5px solid currentColor;border-radius:6px;text-decoration:none;font-size:14px;letter-spacing:.04em;color:inherit;display:inline-flex;align-items:center;height:44px;padding:0 20px;flex:0 0 auto;width:auto;line-height:1;">LinkedIn</a>
+          <a href="https://github.com/mfrancois3k" target="_blank" rel="noopener" style="border:1.5px solid currentColor;border-radius:6px;text-decoration:none;font-size:14px;letter-spacing:.04em;color:inherit;display:inline-flex;align-items:center;height:44px;padding:0 20px;flex:0 0 auto;width:auto;line-height:1;">GitHub</a>
+        </div>
         
         <div class="scene">
           <div class="cube">
@@ -147,17 +166,17 @@
     <section id="section-2" style="background-color: #fff;">
       <main>
         <aside data-aos="fade-up"
-        data-aos-duration="2000">
+        data-aos-duration="666">
           <div class="widget">
-            <img src="https://i.postimg.cc/CxmsT2Kz/Generated-Image-September-17-2025-11-34-AM.png" alt="">
+            <img src="/assets/projects/profile.jpg" alt="Michael Francois">
           </div>
         </aside>
            
         <article>
           <span data-aos="fade-up"
-          data-aos-duration="9000" data-aos-offset="350" class="text-black">About</span>
+          data-aos-duration="1500" data-aos-offset="350" class="text-black">About</span>
           <p data-aos="fade-up"
-          data-aos-duration="4000">I am an aspiring developer looking to put his skills to the test. I am self taught, highly motivated, with great problem-solving skills and attention to detail. I have a passion for learning new things and gaining more knowledge to master my craft.</p>
+          data-aos-duration="1333">I'm a Brooklyn-based web and HTML email developer. I build responsive sites and applications with React and Node.js, and cross-client email templates tested in Litmus. Self-taught and shipping: my independent work includes Amparo (amparohq.com), a live bilingual know-your-rights app. I'm open to full-time roles and freelance projects.</p>
         </article>
       </main>
     </section>
@@ -169,51 +188,56 @@
       data-aos-offset="100" class="text">SKILLS</span>
       <div class="header">
         <h2 data-aos="fade-up"
-        data-aos-duration="2000">Creation of friendly<br>web interface layout</h2>
+        data-aos-duration="666">Creation of friendly<br>web interface layout</h2>
       </div>
 
       <div class="sections">
         <div class="section">
           <div class="section-header">
-            <span data-aos="fade-right" data-aos-duration="2700" data-aos-offset="100" class="section-number">01</span>
-            <span data-aos="fade-right" data-aos-duration="2200" data-aos-offset="200" class="section-title">Work Flow Process</span>
+            <span data-aos="fade-right" data-aos-duration="900" data-aos-offset="100" class="section-number">01</span>
+            <span data-aos="fade-right" data-aos-duration="733" data-aos-offset="200" class="section-title">Work Flow Process</span>
           </div>
           <ul>
-            <li data-aos="fade-up" data-aos-duration="2800"  data-aos-easing="linear" data-aos-offset="50">RESEARCH</li>
-            <li data-aos="fade-up" data-aos-duration="3100"  data-aos-easing="linear" data-aos-offset="60">CONCEPT DEVELOPMENT</li>
-            <li data-aos="fade-up" data-aos-duration="3200"  data-aos-easing="linear" data-aos-offset="70">CONTENT STRATEGY</li>
-            <li data-aos="fade-up" data-aos-duration="3300"  data-aos-easing="linear" data-aos-offset="80">ONLINE MARKETING</li>
-            <li data-aos="fade-up" data-aos-duration="3400"  data-aos-easing="linear" data-aos-offset="90">USER TESTING</li>
-            <li data-aos="fade-up" data-aos-duration="3500"  data-aos-easing="linear" data-aos-offset="100">DEPLOY</li>
+            <li data-aos="fade-up" data-aos-duration="933"  data-aos-easing="linear" data-aos-offset="50">RESEARCH</li>
+            <li data-aos="fade-up" data-aos-duration="1033"  data-aos-easing="linear" data-aos-offset="60">CONCEPT DEVELOPMENT</li>
+            <li data-aos="fade-up" data-aos-duration="1066"  data-aos-easing="linear" data-aos-offset="70">CONTENT STRATEGY</li>
+            <li data-aos="fade-up" data-aos-duration="1100"  data-aos-easing="linear" data-aos-offset="80">ONLINE MARKETING</li>
+            <li data-aos="fade-up" data-aos-duration="1133"  data-aos-easing="linear" data-aos-offset="90">USER TESTING</li>
+            <li data-aos="fade-up" data-aos-duration="1166"  data-aos-easing="linear" data-aos-offset="100">DEPLOY</li>
           </ul>
         </div>
 
         <div class="section">
           <div class="section-header">
-            <span data-aos="fade-right" data-aos-duration="2700" data-aos-offset="120"  class="section-number">02</span>
-            <span data-aos="fade-right" data-aos-duration="2200" data-aos-offset="220"  class="section-title">Skills</span>
+            <span data-aos="fade-right" data-aos-duration="900" data-aos-offset="120"  class="section-number">02</span>
+            <span data-aos="fade-right" data-aos-duration="733" data-aos-offset="220"  class="section-title">Skills</span>
           </div>
           <ul>  
-            <li data-aos="fade-up" data-aos-duration="2800" data-aos-easing="linear" data-aos-offset="50">HTML/CSS</li>  
-            <li data-aos="fade-up" data-aos-duration="3100" data-aos-easing="linear" data-aos-offset="60">SASS</li>  
-            <li data-aos="fade-up" data-aos-duration="3200" data-aos-easing="linear" data-aos-offset="70">JAVASCRIPT</li>  
-            <li data-aos="fade-up" data-aos-duration="3300" data-aos-easing="linear" data-aos-offset="80">GSAP</li>  
-            <li data-aos="fade-up" data-aos-duration="3400" data-aos-easing="linear" data-aos-offset="90">FOUNDATION EMAIL FRAMEWORK</li>  
-            <li data-aos="fade-up" data-aos-duration="3500" data-aos-easing="linear" data-aos-offset="100">PHOTOSHOP</li>  
+            <li data-aos="fade-up" data-aos-duration="933" data-aos-easing="linear" data-aos-offset="50">HTML/CSS</li>  
+            <li data-aos="fade-up" data-aos-duration="1033" data-aos-easing="linear" data-aos-offset="60">SASS</li>  
+            <li data-aos="fade-up" data-aos-duration="1066" data-aos-easing="linear" data-aos-offset="70">JAVASCRIPT</li>  
+            <li data-aos="fade-up" data-aos-duration="1100" data-aos-easing="linear" data-aos-offset="80">GSAP</li>  
+            <li data-aos="fade-up" data-aos-duration="1133" data-aos-easing="linear" data-aos-offset="90">FOUNDATION EMAIL FRAMEWORK</li>  
+            <li data-aos="fade-up" data-aos-duration="1166" data-aos-easing="linear" data-aos-offset="100">PHOTOSHOP</li>  
+            <li data-aos="fade-up" data-aos-duration="1200" data-aos-easing="linear" data-aos-offset="110">REACT</li>  
+            <li data-aos="fade-up" data-aos-duration="1233" data-aos-easing="linear" data-aos-offset="120">TYPESCRIPT</li>  
+            <li data-aos="fade-up" data-aos-duration="1266" data-aos-easing="linear" data-aos-offset="130">NODE.JS / EXPRESS</li>  
+            <li data-aos="fade-up" data-aos-duration="1300" data-aos-easing="linear" data-aos-offset="140">LITMUS</li>  
+            <li data-aos="fade-up" data-aos-duration="1333" data-aos-easing="linear" data-aos-offset="150">WORDPRESS / SHOPIFY</li>  
         </ul>
         
         </div>
 
         <div class="section">
           <div class="section-header">
-            <span data-aos="fade-right" data-aos-duration="2700" data-aos-offset="130"  class="section-number">03</span>
-            <span data-aos="fade-right" data-aos-duration="2200" data-aos-offset="230"  class="section-title">Tools</span>
+            <span data-aos="fade-right" data-aos-duration="900" data-aos-offset="130"  class="section-number">03</span>
+            <span data-aos="fade-right" data-aos-duration="733" data-aos-offset="230"  class="section-title">Tools</span>
           </div>
           <ul>  
-            <li data-aos="fade-up" data-aos-duration="2800" data-aos-easing="linear" data-aos-offset="50">VISUAL STUDIO CODE</li>  
-            <li data-aos="fade-up" data-aos-duration="3100" data-aos-easing="linear" data-aos-offset="60">LINUX UBUNTU</li>  
-            <li data-aos="fade-up" data-aos-duration="3200" data-aos-easing="linear" data-aos-offset="70">LITMUS</li>  
-            <li data-aos="fade-up" data-aos-duration="3300" data-aos-easing="linear" data-aos-offset="80">MAILCHIMP</li>  
+            <li data-aos="fade-up" data-aos-duration="933" data-aos-easing="linear" data-aos-offset="50">VISUAL STUDIO CODE</li>  
+            <li data-aos="fade-up" data-aos-duration="1033" data-aos-easing="linear" data-aos-offset="60">LINUX UBUNTU</li>  
+            <li data-aos="fade-up" data-aos-duration="1066" data-aos-easing="linear" data-aos-offset="70">LITMUS</li>  
+            <li data-aos="fade-up" data-aos-duration="1100" data-aos-easing="linear" data-aos-offset="80">MAILCHIMP</li>  
         </ul>
         
         </div>
@@ -224,20 +248,20 @@
       <!-- <h1 class="site-content__headline">Project</h1> -->
       
       <span data-aos="fade-up"
-      data-aos-duration="9000" data-aos-easing="linear" data-aos-offset="450" class="text-black mb-8 ">Projects</span>
+      data-aos-duration="1500" data-aos-easing="linear" data-aos-offset="450" class="text-black mb-8 ">Projects</span>
       <div class="container ">
 
         <div class="header">
             <div class="filter-buttons ">
-                <button data-aos="fade-right" data-aos-duration="2700" data-aos-offset="100" class="filter-btn active" data-filter="all">ALL</button>
-                <button data-aos="fade-right" data-aos-duration="2800" data-aos-offset="150" class="filter-btn" data-filter="backend">EMAIL</button>
-                <button data-aos="fade-right" data-aos-duration="3100" data-aos-offset="200" class="filter-btn" data-filter="frontend" >FRONTEND</button>
+                <button data-aos="fade-right" data-aos-duration="900" data-aos-offset="100" class="filter-btn active" data-filter="all">ALL</button>
+                <button data-aos="fade-right" data-aos-duration="933" data-aos-offset="150" class="filter-btn" data-filter="backend">EMAIL</button>
+                <button data-aos="fade-right" data-aos-duration="1033" data-aos-offset="200" class="filter-btn" data-filter="frontend" >FRONTEND</button>
             </div>
         </div>
         
         <div class="projects-grid">
           <!-- Amparo -->
-            <div data-aos="fade-down" data-aos-duration="3200" data-aos-offset="180" class="project-card" data-category="frontend">
+            <div data-aos="fade-down" data-aos-duration="1066" data-aos-offset="180" class="project-card" data-category="frontend">
                 <img src="/assets/amparo.png" alt="Amparo — bilingual traffic-stop rights app">
 
                 <div class="project-overlay">
@@ -246,7 +270,7 @@
             <dialog class="modal" id="dialogAmparo">
               <div class="modal-container">
                 <header class="project-header">
-                  <div data-aos="fade-up" data-aos-duration="2000" class="pic-container">
+                  <div data-aos="fade-up" data-aos-duration="666" class="pic-container">
                     <img class='image' src="/assets/amparo.png" alt="Amparo — Know your rights at every traffic stop">
                     <div class="middle">
                       <div class="text">
@@ -259,13 +283,13 @@
                 <div class="modal-content">
                   <div class="info-grid">
                     <div class="info-section">
-                      <h2 data-aos="fade-up" data-aos-duration="4000" class="info-heading">Description</h2>
-                      <p data-aos="fade-up" data-aos-duration="4200" class="info-content">Amparo (amparohq.com) is a free bilingual (English/Spanish) web app that helps drivers know and practice their rights during traffic stops — state-specific legal rules for TX, NY, and GA, a printable glovebox pack builder, and out-loud rehearsal with real officer lines. Built as a static React + TypeScript app with a privacy-first, offline-capable design (everything stays on the user's device) and automated daily content and statute-check pipelines. Independently designed, built, and shipped.</p>
+                      <h2 data-aos="fade-up" data-aos-duration="1333" class="info-heading">Description</h2>
+                      <p data-aos="fade-up" data-aos-duration="1400" class="info-content">Amparo (amparohq.com) is a free bilingual (English/Spanish) web app that helps drivers know and practice their rights during traffic stops — state-specific legal rules for TX, NY, and GA, a printable glovebox pack builder, and out-loud rehearsal with real officer lines. Built as a static React + TypeScript app with a privacy-first, offline-capable design (everything stays on the user's device) and automated daily content and statute-check pipelines. Independently designed, built, and shipped.</p>
                     </div>
                     <div class="info-section">
-                      <h2 data-aos="fade-up" data-aos-duration="4400" class="info-heading">Links</h2>
+                      <h2 data-aos="fade-up" data-aos-duration="1466" class="info-heading">Links</h2>
                       <div class="source-code-section">
-                        <a data-aos="fade-up" data-aos-duration="4600" class="view-source-btn" href="https://github.com/mfrancois3k/amparo" target="_blank" style="text-decoration:none;display:inline-block;text-align:center;">View Source Code</a>
+                        <a data-aos="fade-up" data-aos-duration="1500" class="view-source-btn" href="https://github.com/mfrancois3k/amparo" target="_blank" style="text-decoration:none;display:inline-block;text-align:center;">View Source Code</a>
                       </div>
                     </div>
                   </div>
@@ -274,8 +298,8 @@
             </dialog>
             </div>
           <!-- Grubhub Email -->
-            <div data-aos="fade-down" data-aos-duration="3300" data-aos-offset="200" class="project-card" id="viewSourceCodeBtnFour" data-category="backend">
-                <img src="https://i.postimg.cc/fyz4MfjD/grubhub.png" alt="CommonApp Handbook">
+            <div data-aos="fade-down" data-aos-duration="1100" data-aos-offset="200" class="project-card" id="viewSourceCodeBtnFour" data-category="backend">
+                <img src="/assets/projects/grubhub.png" alt="Grubhub promotional email">
                
                 <div class="project-overlay">
                     <h3 data-dialog="dialogOne1" class="learn-more">Learn More</h3>
@@ -285,8 +309,8 @@
       
       <header class="project-header">
         
-        <div  data-aos="fade-up" data-aos-duration="2000" class="pic-container">
-          <img class='image' src="https://i.postimg.cc/fyz4MfjD/grubhub.png" alt="Grubhub Email">
+        <div  data-aos="fade-up" data-aos-duration="666" class="pic-container">
+          <img class='image' src="/assets/projects/grubhub.png" alt="Grubhub Email">
           <div class="middle">
             <div class="text">
               <a href="https://mfrancois3k.github.io/grubhubEmail/" target="_blank">Launch Site</a>
@@ -301,20 +325,20 @@
             <div class="info-grid">
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4000" class="info-heading">Description</h2>
+                    data-aos-duration="1333" class="info-heading">Description</h2>
                     <p data-aos="fade-up"
-                    data-aos-duration="4200" class="info-content">Promotional email created utilizing HTML/CSS</p>
+                    data-aos-duration="1400" class="info-content">Promotional email created utilizing HTML/CSS</p>
                 </div>
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4400" class="info-heading">Links</h2>
+                    data-aos-duration="1466" class="info-heading">Links</h2>
                   <!-- Second modal -->
                   <div class="source-code-section">
                     <button data-aos="fade-up"
-                    data-aos-duration="4600" data-dialog="sourceCodeModal" class="view-source-btn">View Source Code</button>
+                    data-aos-duration="1500" data-dialog="sourceCodeModal" class="view-source-btn">View Source Code</button>
                     <a href="https://github.com/mfrancois3k/emailProjects" target="_blank">    
                       <svg data-aos="fade-up"
-                      data-aos-duration="4800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                      data-aos-duration="1500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                         <a xlink:href="https://github.com/mfrancois3k/emailProjects" target="_blank">
                           <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
                         </a>
@@ -2270,8 +2294,8 @@ body.outlook p {
              
             </div>
           <!-- NewsLetter -->
-           <div  data-aos="fade-down" data-aos-duration="3500" data-aos-offset="240" class="project-card" data-category="backend">
-                <img src="https://i.postimg.cc/g0WMqGSr/brums-Milano.png" alt="Brums Milano NewsLetter">
+           <div  data-aos="fade-down" data-aos-duration="1166" data-aos-offset="240" class="project-card" data-category="backend">
+                <img src="/assets/projects/brums-milano.png" alt="Brums Milano NewsLetter">
                
                 <div class="project-overlay">
                     <h3 data-dialog="dialogTwo2" class="learn-more">Learn More</h3>
@@ -2281,7 +2305,7 @@ body.outlook p {
         <header class="project-header">
           
           <div class="pic-container">
-            <img src="https://i.postimg.cc/g0WMqGSr/brums-Milano.png" alt="Brums Milano NewsLetter">
+            <img src="/assets/projects/brums-milano.png" alt="Brums Milano NewsLetter">
              <div class="middle">
     <div class="text">
       <a href="https://mfrancois3k.github.io/BrumsMilanoNewsLetter/" target="_blank">Launch Site</a>
@@ -2295,17 +2319,17 @@ body.outlook p {
             <div class="info-grid">
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4000" class="info-heading">Description</h2>
+                    data-aos-duration="1333" class="info-heading">Description</h2>
                     <p data-aos="fade-up"
-                    data-aos-duration="4200" class="info-content">Brums Milano NewsLetter email created by utilizing HTML/CSS</p>
+                    data-aos-duration="1400" class="info-content">Brums Milano NewsLetter email created by utilizing HTML/CSS</p>
                 </div>
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4400" class="info-heading">Links</h2>
+                    data-aos-duration="1466" class="info-heading">Links</h2>
                   <!-- Second modal -->
                   <div class="source-code-section">
     <button data-aos="fade-up"
-    data-aos-duration="4600" data-dialog="sourceCodeModal2" class="view-source-btn">View Source Code</button>
+    data-aos-duration="1500" data-dialog="sourceCodeModal2" class="view-source-btn">View Source Code</button>
               <a href="https://github.com/mfrancois3k/BrumsMilanoNewsLetter" target="_blank">    
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
     <a xlink:href="https://github.com/mfrancois3k/BrumsMilanoNewsLetter" target="_blank">
@@ -4262,8 +4286,8 @@ body.outlook p {
              
             </div>
           <!-- Linkedin Alert Email -->
-          <div data-aos="fade-down" data-aos-duration="3700" data-aos-offset="280" class="project-card" data-category="backend">
-                <img src="https://i.postimg.cc/m2SWF62Y/linkin-Email.png" alt="linkedin">
+          <div data-aos="fade-down" data-aos-duration="1233" data-aos-offset="280" class="project-card" data-category="backend">
+                <img src="/assets/projects/linkedin-email.png" alt="linkedin">
                
                 <div class="project-overlay">
                     <h3 data-dialog="dialogThree3" class="learn-more">Learn More</h3>
@@ -4272,8 +4296,8 @@ body.outlook p {
     <div class="modal-container">
         <header class="project-header">
           
-          <div data-aos="fade-down" data-aos-duration="3700" data-aos-offset="280" class="pic-container">
-            <img src="https://i.postimg.cc/m2SWF62Y/linkin-Email.png" alt="Linkedin Alert Email">
+          <div data-aos="fade-down" data-aos-duration="1233" data-aos-offset="280" class="pic-container">
+            <img src="/assets/projects/linkedin-email.png" alt="Linkedin Alert Email">
              <div class="middle">
     <div class="text">
       <a href="https://mfrancois3k.github.io/LinkedinAlertEmail/" target="_blank">Launch Site</a>
@@ -4287,20 +4311,20 @@ body.outlook p {
             <div class="info-grid">
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4000" class="info-heading">Description</h2>
+                    data-aos-duration="1333" class="info-heading">Description</h2>
                     <p data-aos="fade-up"
-                    data-aos-duration="4200" class="info-content">linkedin Alert Email created by utilizing HTML/CSS TABLES</p>
+                    data-aos-duration="1400" class="info-content">linkedin Alert Email created by utilizing HTML/CSS TABLES</p>
                 </div>
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4400" class="info-heading">Links</h2>
+                    data-aos-duration="1466" class="info-heading">Links</h2>
                   <!-- Second modal -->
                   <div class="source-code-section">
     <button data-aos="fade-up"
-    data-aos-duration="4600" data-dialog="sourceCodeModal3" class="view-source-btn">View Source Code</button>
+    data-aos-duration="1500" data-dialog="sourceCodeModal3" class="view-source-btn">View Source Code</button>
               <a href="https://github.com/mfrancois3k/LinkedinAlertEmail" target="_blank">    
           <svg data-aos="fade-up"
-          data-aos-duration="4800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+          data-aos-duration="1500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
     <a xlink:href="https://github.com/mfrancois3k/LinkedinAlertEmail" target="_blank">
         <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
     </a>
@@ -4866,8 +4890,8 @@ body.outlook p {
              
             </div>
           <!-- Contact Page -->
-            <div data-aos="fade-up" data-aos-duration="3900" data-aos-offset="320" class="project-card" data-category="frontend">
-                <img src="https://i.postimg.cc/TwY6RzDN/borderbuddy.png" alt="Contact Page">
+            <div data-aos="fade-up" data-aos-duration="1300" data-aos-offset="320" class="project-card" data-category="frontend">
+                <img src="/assets/projects/borderbuddy.png" alt="Contact Page">
                 <div class="project-overlay">
                     <h3 data-dialog="dialogFour4" class="learn-more">Learn More</h3>
                 </div>
@@ -4875,15 +4899,15 @@ body.outlook p {
     <div class="modal-container">
         <header class="project-header">
           
-          <div data-aos="fade-down" data-aos-duration="3700" data-aos-offset="280" class="pic-container">
-            <img class='image' src="https://i.postimg.cc/TwY6RzDN/borderbuddy.png" alt="Contact Page">
+          <div data-aos="fade-down" data-aos-duration="1233" data-aos-offset="280" class="pic-container">
+            <img class='image' src="/assets/projects/borderbuddy.png" alt="Contact Page">
              <div class="middle">
     <div class="text">
       <a href="https://borderbuddy.site/" target="_blank">Launch Site</a>
       </div>
   </div>
           </div>
-          <div data-aos="fade-down" data-aos-duration="3700" data-aos-offset="300" class="pic-container">
+          <div data-aos="fade-down" data-aos-duration="1233" data-aos-offset="300" class="pic-container">
             <img class='image' src="https://unbounce.com/photos/borderbuddy-lp.jpg" alt="Contact Page">
              <div class="middle">
     <div class="text">
@@ -4905,19 +4929,19 @@ body.outlook p {
                   </div> -->
                   
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4000"
+                    data-aos-duration="1333"
                      class="info-heading">Description</h2>
-                    <p data-aos="fade-up" data-aos-duration="4200" class="info-content">Contact page website based on mockup utilizing HTML/CSS and gsap. Recently migrated to wix.</p>
+                    <p data-aos="fade-up" data-aos-duration="1400" class="info-content">Contact page website based on mockup utilizing HTML/CSS and gsap.</p>
                 </div>
                 <div class="info-section">
                     <h2 data-aos="fade-up"
-                    data-aos-duration="4400" class="info-heading">Links</h2>
+                    data-aos-duration="1466" class="info-heading">Links</h2>
                   <!-- Second modal -->
-                  <div data-aos="fade-up" data-aos-duration="4600" class="source-code-section">
+                  <div data-aos="fade-up" data-aos-duration="1500" class="source-code-section">
     <button data-dialog="sourceCodeModal4" class="view-source-btn">View Source Code</button>
               <a href="https://github.com/mfrancois3k/borderbuddy" target="_blank">    
           <svg data-aos="fade-up"
-          data-aos-duration="4800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+          data-aos-duration="1500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
     <a xlink:href="https://github.com/mfrancois3k/emailProjects" target="_blank">
         <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
     </a>
@@ -6871,9 +6895,9 @@ body.outlook p {
     
 </dialog>
             </div>
-           <!-- Chatgpt Prompt Libray -->
-            <div data-aos="fade-up" data-aos-duration="2800" data-aos-offset="150" class="project-card" data-category="frontend">
-                <img src="https://storage.ko-fi.com/cdn/useruploads/display/739f9019-c768-4551-a9a3-d434cb12c5a5_chatgptpromptlibrary.jpg" alt="Chatgpt Prompt Libray">
+           <!-- ChatGPT Prompt Library -->
+            <div data-aos="fade-up" data-aos-duration="933" data-aos-offset="150" class="project-card" data-category="frontend">
+                <img src="/assets/projects/chatgpt-prompt-library.jpg" alt="ChatGPT Prompt Library">
                 <div class="project-overlay">
                     <h3 data-dialog="dialogFive5" class="learn-more">Learn More</h3>
                 </div>
@@ -6882,7 +6906,7 @@ body.outlook p {
         <header class="project-header">
           
           <div class="pic-container">
-            <img class='image' src="https://storage.ko-fi.com/cdn/useruploads/display/739f9019-c768-4551-a9a3-d434cb12c5a5_chatgptpromptlibrary.jpg" alt="Chatgpt Prompt Libray">
+            <img class='image' src="/assets/projects/chatgpt-prompt-library.jpg" alt="ChatGPT Prompt Library">
              <div class="middle">
     <div class="text">
   <a href="https://promptopia.net/" target="_blank">Launch Site</a>
@@ -8874,19 +8898,19 @@ body.outlook p {
     <section id="section-5">
       
       <span data-aos="fade-up"
-      data-aos-duration="2000" data-aos-easing="linear" data-aos-offset="450"  class="background-text">Contact</span>
+      data-aos-duration="666" data-aos-easing="linear" data-aos-offset="450"  class="background-text">Contact</span>
       <!-- <h1 class="site-content__headline">Contact</h1> -->
        <!-- Contact Form Component -->
         
-       <div data-aos="fade-up" data-aos-duration="3000" class="contact-container" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+       <div data-aos="fade-up" data-aos-duration="1000" class="contact-container" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
         <div class="contact-left">
           <div class="contact-title">Contact</div>
           <div class="contact-subtitle">Me</div>
           <div class="info">CONTACT INFO: mfrancois3k@gmail.com</div>
         </div>
-        <div data-aos="fade-up" data-aos-duration="3300" data-aos-offset="150" class="contact-right">
+        <div data-aos="fade-up" data-aos-duration="1100" data-aos-offset="150" class="contact-right">
           <form action="https://formspree.io/f/xnnjkedb" method="POST" id="contactForm">
-            <div data-aos="fade-up" data-aos-duration="3600" class="form-group" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div data-aos="fade-up" data-aos-duration="1200" class="form-group" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
               <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="">
             </div>
             <div class="form-group" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
