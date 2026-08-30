@@ -1,57 +1,26 @@
-/* Interactive cube — idle drift, cursor-follow tilt, cell ripples, click burst, drag with momentum. */
+/* Interactive cube v2 — CSS-animation idle spin (resilient), timer-driven cell effects,
+   transition-based hover tilt, click burst, drag with pause/resume. No rAF dependency. */
 (function () {
   'use strict';
 
   function initCube(scene) {
+    var tilt = scene.querySelector('.cube-tilt');
     var cube = scene.querySelector('.cube');
-    if (!cube) return;
+    if (!cube || !tilt) return;
+
     var faces = scene.querySelectorAll('.face');
     var cellCount = parseInt(scene.getAttribute('data-cells') || '100', 10);
     var cols = Math.round(Math.sqrt(cellCount));
-
     faces.forEach(function (f) {
       for (var i = 0; i < cellCount; i++) f.appendChild(document.createElement('i'));
     });
     var cells = scene.querySelectorAll('.face i');
 
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) {
-      cube.style.transform = 'rotateX(-14deg) rotateY(24deg)';
-      return;
-    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    /* ---- state ---- */
-    var baseX = -13;          // resting pitch
-    var rotY = 0;             // accumulated yaw
-    var drift = 0.14;         // idle deg/frame at 60fps
-    var boost = 0;            // click impulse, decays
-    var momentum = 0;         // drag release velocity, decays
-    var tiltX = 0, tiltY = 0; // cursor-follow tilt (lerped)
-    var tTiltX = 0, tTiltY = 0;
-    var hover = false, dragging = false, moved = false;
-    var px = 0, py = 0, lastT = 0;
-
-    function frame(t) {
-      var dt = Math.min(48, t - lastT) || 16; lastT = t;
-      var k = dt / 16;
-      rotY += (drift + boost + momentum) * k;
-      boost *= Math.pow(0.94, k);
-      momentum *= Math.pow(0.95, k);
-      tiltX += (tTiltX - tiltX) * 0.085;
-      tiltY += (tTiltY - tiltY) * 0.085;
-      cube.style.transform =
-        'rotateX(' + (baseX + tiltX) + 'deg) rotateY(' + (rotY + tiltY) + 'deg)';
-      requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-
-    /* ---- ambient flashes (quicken on hover) ---- */
-    setInterval(function () {
-      var n = hover ? 4 : 2;
-      for (var i = 0; i < n; i++) {
-        flash(cells[Math.floor(Math.random() * cells.length)], hover ? 420 : 700);
-      }
-    }, 210);
+    var PITCH = -13;
+    var dragging = false, moved = false, hover = false;
+    var dragYaw = 0, dragPitch = PITCH, px = 0, py = 0;
 
     function flash(el, hold) {
       if (!el) return;
@@ -59,7 +28,15 @@
       setTimeout(function () { el.classList.remove('active'); }, hold);
     }
 
-    /* ---- radial wave across every face ---- */
+    /* ambient flashes — quicker when hovered */
+    setInterval(function () {
+      var n = hover ? 4 : 2;
+      for (var i = 0; i < n; i++) {
+        flash(cells[Math.floor(Math.random() * cells.length)], hover ? 420 : 700);
+      }
+    }, 210);
+
+    /* radial wave across every face */
     function wave() {
       faces.forEach(function (f) {
         var kids = f.children;
@@ -74,7 +51,11 @@
       });
     }
 
-    /* ---- pointer interactions ---- */
+    function setTilt(pitch, yaw, roll) {
+      tilt.style.transform =
+        'rotateX(' + pitch + 'deg) rotateY(' + (yaw || 0) + 'deg) rotateZ(' + (roll || 0) + 'deg)';
+    }
+
     scene.addEventListener('pointerenter', function () {
       hover = true;
       scene.classList.add('cube-hover');
@@ -82,50 +63,50 @@
 
     scene.addEventListener('pointerleave', function () {
       hover = false; dragging = false;
-      tTiltX = 0; tTiltY = 0;
-      scene.classList.remove('cube-hover', 'cube-grab');
+      scene.classList.remove('cube-hover', 'cube-grab', 'cube-dragging');
+      setTilt(PITCH, dragYaw, 0);
     });
 
     scene.addEventListener('pointermove', function (e) {
-      var r = scene.getBoundingClientRect();
       if (dragging) {
         moved = true;
-        momentum = 0;
-        rotY += (e.clientX - px) * 0.45;
-        tTiltX = Math.max(-35, Math.min(35, tTiltX - (e.clientY - py) * 0.25));
+        dragYaw += (e.clientX - px) * 0.45;
+        dragPitch = Math.max(-55, Math.min(30, dragPitch - (e.clientY - py) * 0.3));
         px = e.clientX; py = e.clientY;
+        setTilt(dragPitch, dragYaw, 0);
       } else {
+        var r = scene.getBoundingClientRect();
         var dx = (e.clientX - r.left) / r.width - 0.5;
         var dy = (e.clientY - r.top) / r.height - 0.5;
-        tTiltY = dx * 26;
-        tTiltX = -dy * 22;
+        /* cursor-follow lean — smoothed by the CSS transition on .cube-tilt */
+        setTilt(PITCH - dy * 20, dragYaw, dx * 7);
       }
     });
 
     scene.addEventListener('pointerdown', function (e) {
       dragging = true; moved = false;
       px = e.clientX; py = e.clientY;
-      scene.classList.add('cube-grab');
+      scene.classList.add('cube-grab', 'cube-dragging'); /* pauses the CSS spin */
       try { scene.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault();
     });
 
-    scene.addEventListener('pointerup', function (e) {
-      if (dragging && moved) {
-        momentum = Math.max(-10, Math.min(10, (e.clientX - px) * 0.4));
-      } else if (dragging) {
-        /* clean tap/click: burst */
-        boost += 13;
-        scene.classList.remove('cube-pulse');
+    scene.addEventListener('pointerup', function () {
+      var wasTap = dragging && !moved;
+      dragging = false;
+      scene.classList.remove('cube-grab', 'cube-dragging'); /* spin resumes where it paused */
+      if (wasTap) {
+        /* burst: fast extra revolution + scale pop on the outer wrapper, wave on the cells */
+        scene.classList.remove('cube-burst');
         void scene.offsetWidth;
-        scene.classList.add('cube-pulse');
+        scene.classList.add('cube-burst');
         wave();
       }
-      dragging = false;
-      tTiltX = 0; tTiltY = 0;
-      scene.classList.remove('cube-grab');
+      setTilt(PITCH, dragYaw, 0);
+      dragPitch = PITCH;
     });
 
-    /* ---- per-cell hover ripple (mouse only) ---- */
+    /* per-cell hover ripple (mouse only) */
     scene.addEventListener('pointerover', function (e) {
       if (e.pointerType !== 'mouse' || dragging) return;
       var el = e.target;

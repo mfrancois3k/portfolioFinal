@@ -183,11 +183,19 @@
       transform-style: preserve-3d; perspective: 900px;
       z-index: 0;
     }
+    .cube-burst-wrap, .cube-tilt {
+      position: absolute; inset: 0; transform-style: preserve-3d;
+    }
+    .cube-tilt { transform: rotateX(-13deg); transition: transform .35s ease-out; }
     .cube {
       position: absolute; inset: 0;
       transform-style: preserve-3d;
-      will-change: transform;
+      animation: cube-spin 26s linear infinite;
     }
+    .cube-dragging .cube { animation-play-state: paused; }
+    @keyframes cube-spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+    .cube-burst .cube-burst-wrap { animation: cube-burst-spin .9s cubic-bezier(.2, .8, .2, 1); }
+    @keyframes cube-burst-spin { 0% { transform: rotateY(0deg) scale3d(1,1,1); } 40% { transform: rotateY(200deg) scale3d(1.09,1.09,1.09); } 100% { transform: rotateY(360deg) scale3d(1,1,1); } }
     .face {
       position: absolute; width: 280px; height: 280px;
       background: rgba(76, 0, 130, 0.22);
@@ -202,12 +210,10 @@
     .face--left { transform: rotateY(-90deg) translateZ(140px); }
     .scene { cursor: grab; touch-action: none; pointer-events: auto; }
     .scene.cube-grab { cursor: grabbing; }
-    .scene.cube-hover .face { background: rgba(76, 0, 130, 0.2); border-color: rgba(17, 17, 17, 0.4); }
+    .scene.cube-hover .face { border-color: rgba(17, 17, 17, 0.45); }
     .face { transition: background .35s ease, border-color .35s ease; }
     .face i { transition: background .4s ease-out, filter .4s ease-out; }
     .face i.active { transition: none; }
-    .scene.cube-pulse { animation: cube-pulse .55s cubic-bezier(.34, 1.56, .64, 1); }
-    @keyframes cube-pulse { 0% { scale: 1; } 35% { scale: 1.09; } 100% { scale: 1; } }
     @media (max-width: 1100px) { .scene { display: none; } }
 
     /* ---------- responsive ---------- */
@@ -260,11 +266,15 @@
       <div class="ghost" style="top:170px;left:-40px;" aria-hidden="true">FRANCOIS</div>
       <div class="hero-main">
         <div class="scene" aria-hidden="true" data-cells="100">
+          <div class="cube-burst-wrap">
+          <div class="cube-tilt">
           <div class="cube">
             <div class="face face--front"></div>
             <div class="face face--back"></div>
             <div class="face face--right"></div>
             <div class="face face--left"></div>
+          </div>
+          </div>
           </div>
         </div>
         <h1>Michael<br>Francois</h1>
