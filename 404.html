@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Michael Francois</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    :root { --yellow:#f5f572; --ink:#111111; --bw:4px; }
+    * { box-sizing: border-box; }
+    body {
+      margin:0; min-height:100vh; display:flex; flex-direction:column;
+      background:var(--yellow); color:var(--ink);
+      font-family:"Space Mono",monospace; -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px dashed var(--ink); outline-offset:3px; }
+
+    header { display:flex; align-items:stretch; border-bottom:var(--bw) solid var(--ink); }
+    .logo { padding:16px 22px; border-right:var(--bw) solid var(--ink); font-family:"Archivo Black",sans-serif; font-size:20px; }
+    .crumb { flex:1; display:flex; align-items:center; padding:0 22px; font-size:12px; letter-spacing:.06em; }
+    .home-btn { display:flex; align-items:center; padding:0 26px; border-left:var(--bw) solid var(--ink); background:var(--ink); color:var(--yellow); font-weight:700; font-size:13px; }
+    .home-btn:hover { background:#000; }
+
+    main { flex:1; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; padding:60px 22px; overflow:hidden; }
+    .ghost {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; user-select:none;
+      font-family:"Archivo Black",sans-serif; color:rgba(0,0,0,0.05);
+      white-space:nowrap; font-size:clamp(140px,26vw,380px); line-height:1; z-index:0;
+    }
+    .lost-row { position:relative; z-index:1; display:flex; align-items:center; gap:clamp(18px,4vw,44px); }
+    .four { font-family:"Archivo Black",sans-serif; font-size:clamp(120px,22vw,280px); line-height:1; }
+
+    /* the cube is the zero */
+    .scene { width:clamp(120px,18vw,220px); height:clamp(120px,18vw,220px); position:relative; transform-style:preserve-3d; perspective:900px; }
+    .cube { position:absolute; inset:0; transform-style:preserve-3d; animation:cube-spin 18s linear infinite; }
+    .face {
+      position:absolute; width:100%; height:100%;
+      background:rgba(76,0,130,0.16); border:2px solid rgba(17,17,17,0.4);
+      display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(8,1fr);
+    }
+    .face i { border:.5px solid rgba(17,17,17,.18); }
+    .face i.active { background:#f9f871; filter:drop-shadow(0 0 10px rgba(153,50,204,.7)); }
+    .face--front { transform:translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--back { transform:rotateY(180deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--right { transform:rotateY(90deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--left { transform:rotateY(-90deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    @keyframes cube-spin { from { transform:rotateX(-14deg) rotateY(0); } to { transform:rotateX(-14deg) rotateY(360deg); } }
+
+    .msg { position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; gap:10px; }
+    .msg b { font-family:"Archivo Black",sans-serif; font-size:clamp(18px,2.6vw,26px); text-transform:uppercase; }
+    .msg p { margin:0; font-size:14px; }
+
+    .btn-row { position:relative; z-index:1; display:flex; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:16px 28px; border:3px solid var(--ink); font-weight:700; font-size:14px; color:var(--ink); }
+    .btn + .btn { border-left:0; }
+    .btn-solid { background:var(--ink); color:var(--yellow); }
+    .btn:hover { background:var(--ink); color:var(--yellow); }
+    .btn-solid:hover { background:#000; }
+
+    footer { border-top:var(--bw) solid var(--ink); display:flex; flex-wrap:wrap; gap:24px; padding:14px 22px; font-size:12px; font-weight:700; }
+
+    @media (max-width:560px) {
+      .btn-row { flex-direction:column; align-items:stretch; width:100%; max-width:340px; }
+      .btn + .btn { border-left:3px solid var(--ink); border-top:0; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .cube { animation:none; transform:rotateX(-14deg) rotateY(24deg); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">MF</a>
+    <div class="crumb">ERROR — PAGE NOT FOUND</div>
+    <a class="home-btn" href="/">HOME →</a>
+  </header>
+
+  <main>
+    <div class="ghost" aria-hidden="true">LOST</div>
+    <div class="lost-row" aria-label="404">
+      <span class="four">4</span>
+      <div class="scene" aria-hidden="true">
+        <div class="cube">
+          <div class="face face--front"></div>
+          <div class="face face--back"></div>
+          <div class="face face--right"></div>
+          <div class="face face--left"></div>
+        </div>
+      </div>
+      <span class="four">4</span>
+    </div>
+    <div class="msg">
+      <b>This route shipped nowhere.</b>
+      <p>The page you're after moved, expired, or never existed. The cube spins on regardless.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-solid" href="/">← BACK TO HOME</a>
+      <a class="btn" href="/#work">SEE THE WORK</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 MICHAEL FRANCOIS</span><span>BROOKLYN, NY</span><span>MFRANCOIS3K@GMAIL.COM</span>
+  </footer>
+
+  <script>
+    (function () {
+      var faces = document.querySelectorAll('.face');
+      faces.forEach(function (f) {
+        for (var i = 0; i < 64; i++) f.appendChild(document.createElement('i'));
+      });
+      var cells = document.querySelectorAll('.face i');
+      if (cells.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(function () {
+          for (var i = 0; i < 3; i++) {
+            var c = cells[Math.floor(Math.random() * cells.length)];
+            c.classList.add('active');
+            (function (el) { setTimeout(function () { el.classList.remove('active'); }, 700); })(c);
+          }
+        }, 250);
+      }
+    })();
+  </script>
+</body>
+</html>
