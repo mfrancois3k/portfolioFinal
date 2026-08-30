@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>(function(h){h.classList.add("js");setTimeout(function(){h.classList.add("motion-go")},1200)})(document.documentElement)</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Michael Francois</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap">
+  <style>
+    :root { --yellow:#f5f572; --ink:#111111; --bw:4px; }
+    * { box-sizing: border-box; }
+    body {
+      margin:0; min-height:100vh; display:flex; flex-direction:column;
+      background:var(--yellow); color:var(--ink);
+      font-family:"Space Mono",monospace; -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px dashed var(--ink); outline-offset:3px; }
+
+    header { display:flex; align-items:stretch; border-bottom:var(--bw) solid var(--ink); }
+    .logo { padding:16px 22px; border-right:var(--bw) solid var(--ink); font-family:"Archivo Black",sans-serif; font-size:20px; }
+    .crumb { flex:1; display:flex; align-items:center; padding:0 22px; font-size:12px; letter-spacing:.06em; }
+    .home-btn { display:flex; align-items:center; padding:0 26px; border-left:var(--bw) solid var(--ink); background:var(--ink); color:var(--yellow); font-weight:700; font-size:13px; }
+    .home-btn:hover { background:#000; }
+
+    main { flex:1; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; padding:60px 22px; overflow:hidden; }
+    .ghost {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; user-select:none;
+      font-family:"Archivo Black",sans-serif; color:rgba(0,0,0,0.05);
+      white-space:nowrap; font-size:clamp(140px,26vw,380px); line-height:1; z-index:0;
+    }
+    .lost-row { position:relative; z-index:1; display:flex; align-items:center; gap:clamp(18px,4vw,44px); }
+    .four { font-family:"Archivo Black",sans-serif; font-size:clamp(120px,22vw,280px); line-height:1; }
+
+    /* the cube is the zero */
+    .scene { width:clamp(120px,18vw,220px); height:clamp(120px,18vw,220px); position:relative; transform-style:preserve-3d; perspective:900px; }
+    .cube-burst-wrap, .cube-tilt { position:absolute; inset:0; transform-style:preserve-3d; }
+    .cube-tilt { transform:rotateX(-13deg); transition:transform .35s ease-out; }
+    .cube { position:absolute; inset:0; transform-style:preserve-3d; animation:cube-spin 20s linear infinite; }
+    .cube-dragging .cube { animation-play-state:paused; }
+    @keyframes cube-spin { from { transform:rotateY(0deg); } to { transform:rotateY(360deg); } }
+    .cube-burst .cube-burst-wrap { animation:cube-burst-spin .9s cubic-bezier(.2,.8,.2,1); }
+    @keyframes cube-burst-spin { 0% { transform:rotateY(0deg) scale3d(1,1,1); } 40% { transform:rotateY(200deg) scale3d(1.1,1.1,1.1); } 100% { transform:rotateY(360deg) scale3d(1,1,1); } }
+    .face {
+      position:absolute; width:100%; height:100%;
+      background:rgba(76,0,130,0.16); border:2px solid rgba(17,17,17,0.4);
+      display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(8,1fr);
+    }
+    .face i { border:.5px solid rgba(17,17,17,.18); }
+    .face i.active { background:#f9f871; filter:drop-shadow(0 0 10px rgba(153,50,204,.7)); }
+    .face--front { transform:translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--back { transform:rotateY(180deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--right { transform:rotateY(90deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+    .face--left { transform:rotateY(-90deg) translateZ(calc(clamp(120px,18vw,220px) / 2)); }
+
+    .scene { cursor:grab; touch-action:none; }
+    .scene.cube-grab { cursor:grabbing; }
+    .scene.cube-hover .face { border-color:rgba(17,17,17,0.55); }
+    .face { transition:background .35s ease, border-color .35s ease; }
+    .face i { transition:background .4s ease-out, filter .4s ease-out; }
+    .face i.active { transition:none; }
+    .msg { position:relative; z-index:1; text-align:center; display:flex; flex-direction:column; gap:10px; }
+    .msg b { font-family:"Archivo Black",sans-serif; font-size:clamp(18px,2.6vw,26px); text-transform:uppercase; }
+    .msg p { margin:0; font-size:14px; }
+
+    .btn-row { position:relative; z-index:1; display:flex; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:16px 28px; border:3px solid var(--ink); font-weight:700; font-size:14px; color:var(--ink); }
+    .btn + .btn { border-left:0; }
+    .btn-solid { background:var(--ink); color:var(--yellow); }
+    .btn:hover { background:var(--ink); color:var(--yellow); }
+    .btn-solid:hover { background:#000; }
+
+    footer { border-top:var(--bw) solid var(--ink); display:flex; flex-wrap:wrap; gap:24px; padding:14px 22px; font-size:12px; font-weight:700; }
+
+    @media (max-width:560px) {
+      .btn-row { flex-direction:column; align-items:stretch; width:100%; max-width:340px; }
+      .btn + .btn { border-left:3px solid var(--ink); border-top:0; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .cube, .cube-burst .cube-burst-wrap { animation:none; }
+      .cube-tilt { transition:none; transform:rotateX(-13deg) rotateY(24deg); }
+    }
+  
+    /* ===== cube: original purple-grid look ===== */
+    .face {
+      background: rgba(28, 12, 46, 0.82) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.38) !important;
+    }
+    .face i { border: .5px solid rgba(255, 255, 255, 0.34) !important; }
+    .face i.active {
+      background: #f9f871 !important;
+      filter: drop-shadow(0 0 10px rgba(153, 50, 204, .75)) !important;
+    }
+    .scene.cube-hover .face { border-color: rgba(255, 255, 255, 0.55) !important; }
+    /* ===== glitch ===== */
+    .glitching { animation: mf-glitch .46s steps(2, jump-none); }
+    @keyframes mf-glitch {
+      0% { transform: translate(0); clip-path: inset(0 0 0 0); }
+      20% { transform: translate(-3px, 2px); clip-path: inset(0 0 32% 0); }
+      40% { transform: translate(3px, -2px); clip-path: inset(28% 0 0 0); }
+      60% { transform: translate(-2px, 1px); clip-path: inset(0 0 22% 0); }
+      80% { transform: translate(2px, -1px); clip-path: inset(14% 0 10% 0); }
+      100% { transform: translate(0); clip-path: inset(0 0 0 0); }
+    }
+    /* ===== marquee ===== */
+    .marquee {
+      overflow: hidden; border-bottom: var(--bw) solid var(--ink);
+      background: var(--ink); color: var(--yellow);
+      padding: 14px 0; white-space: nowrap;
+    }
+    .marquee.marquee-lite { background: var(--yellow); color: var(--ink); border-top: var(--bw) solid var(--ink); }
+    .marquee-inner {
+      display: inline-block; white-space: nowrap; will-change: transform;
+      animation: mf-marquee 26s linear infinite;
+      font-family: "Archivo Black", sans-serif; font-size: 17px; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .marquee.rev .marquee-inner { animation-direction: reverse; }
+    .marquee-inner span { margin: 0 22px; }
+    .marquee-inner .dot { color: #9932cc; }
+    .marquee.marquee-lite .marquee-inner .dot { color: #7a1fa8; }
+    @keyframes mf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* ===== custom cursor ===== */
+    .has-cursor, .has-cursor a, .has-cursor button, .has-cursor .scene { cursor: none !important; }
+    .mf-cursor {
+      position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+      width: 18px; height: 18px; margin: -9px 0 0 -9px;
+      border: 2.5px solid var(--ink); background: transparent;
+      transition: width .22s, height .22s, margin .22s, background .22s, border-color .22s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mf-cursor.is-link { width: 40px; height: 40px; margin: -20px 0 0 -20px; background: rgba(245,245,114,.25); }
+    .mf-cursor.is-cube { width: 58px; height: 58px; margin: -29px 0 0 -29px; border-color: #9932cc; background: rgba(153,50,204,.12); }
+    .mf-cursor.is-inverted { border-color: var(--yellow); }
+    .mf-cursor.is-down { scale: .8; }
+    .mf-cursor-label { font: 700 9px/1 "Space Mono", monospace; letter-spacing: .1em; color: #9932cc; }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-inner { animation: none; }
+      .glitching { animation: none; }
+      .mf-cursor { display: none; }
+    }
+  
+    /* ===== motion v3 additions ===== */
+    .ln { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .ch { display: inline-block; white-space: pre; }
+    html.lenis { scroll-behavior: auto !important; }
+    .sec-head { overflow: hidden; }
+    html.js:not(.motion-go) .hero-main h1,
+    html.js:not(.motion-go) .hero-main p,
+    html.js:not(.motion-go) .hero-main .btn-row,
+    html.js:not(.motion-go) .hero-cell,
+    html.js:not(.motion-go) .scene,
+    html.js:not(.motion-go) .four,
+    html.js:not(.motion-go) .msg,
+    html.js:not(.motion-go) main .btn-row,
+    html.js:not(.motion-go) .case-hero h1,
+    html.js:not(.motion-go) .case-hero .sub,
+    html.js:not(.motion-go) .case-hero .chip-row,
+    html.js:not(.motion-go) .case-hero .btn-row { visibility: hidden; }
+    .mf-cursor { transition: width .22s, height .22s, margin .22s, background .22s, border-color .22s, scale .15s, opacity .2s; opacity: 0; }
+    .mf-cursor.is-on { opacity: 1; }
+    .mf-cursor-label { opacity: 0; transition: opacity .18s; }
+    .mf-cursor.is-cube .mf-cursor-label { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .cube-tilt { transform: rotateX(-13deg) rotateY(24deg) !important; transition: none; }
+    }
+  
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">MF</a>
+    <div class="crumb">ERROR — PAGE NOT FOUND</div>
+    <a class="home-btn" href="/">HOME →</a>
+  </header>
+
+  <main>
+    <div class="ghost" aria-hidden="true">LOST</div>
+    <div class="lost-row" aria-label="404">
+      <span class="four">4</span>
+      <div class="scene" aria-hidden="true" data-cells="64">
+        <div class="cube-burst-wrap">
+        <div class="cube-tilt">
+        <div class="cube">
+          <div class="face face--front"></div>
+          <div class="face face--back"></div>
+          <div class="face face--right"></div>
+          <div class="face face--left"></div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <span class="four">4</span>
+    </div>
+    <div class="msg">
+      <b>This route shipped nowhere.</b>
+      <p>The page you're after moved, expired, or never existed. The cube spins on regardless.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-solid" href="/">← BACK TO HOME</a>
+      <a class="btn" href="/#work">SEE THE WORK</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 MICHAEL FRANCOIS</span><span>BROOKLYN, NY</span><span>MFRANCOIS3K@GMAIL.COM</span>
+  </footer>
+
+  <script src="/assets/vendor/gsap.min.js"></script>
+  <script src="/assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="/assets/vendor/lenis.min.js"></script>
+  <script src="/assets/motion.js" defer></script>
+</body>
+</html>
