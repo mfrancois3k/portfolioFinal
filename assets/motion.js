@@ -63,7 +63,7 @@
 
     if (REDUCED) return; /* frozen, dignified (CSS poses it) */
 
-    var PITCH = -13;
+    var PITCH = -12;
     /* four independent channels, summed — no system ever fights another */
     var state = { pitch: PITCH, yaw: 0, roll: 0 };   /* drag + settle */
     var scrollRot = { yaw: 0 };                       /* scroll scrub */
@@ -100,50 +100,14 @@
       clearTimeout(el._lt);
       el._lt = setTimeout(function () { el.classList.remove('active'); }, hold);
     }
-    function cellAt(f, x, y) { return f.children[y * cols + x]; }
 
-    var shows = {
-      sparkle: function () {
-        var n = hover ? 4 : 2;
-        for (var i = 0; i < n; i++) lit(cells[(Math.random() * cells.length) | 0], hover ? 420 : 700);
-      },
-      rain: function () {
-        faces.forEach(function (f, fi) {
-          var x = (Math.random() * cols) | 0;
-          for (var y = 0; y < cols; y++) {
-            (function (el, d) { setTimeout(function () { lit(el, 260); }, d); })(cellAt(f, x, y), y * 55 + fi * 90);
-          }
-        });
-      },
-      sweep: function () { /* light travels: tight wavefront, per-face phase */
-        faces.forEach(function (f, fi) {
-          for (var x = 0; x < cols; x++) {
-            for (var y = 0; y < cols; y++) {
-              (function (el, d) { setTimeout(function () { lit(el, 120); }, d); })(cellAt(f, x, y), x * 55 + fi * 140);
-            }
-          }
-        });
-      },
-      ring: function () {
-        faces.forEach(function (f, fi) {
-          var cx = (cols / 2) | 0, cy = (cols / 2) | 0;
-          for (var i = 0; i < f.children.length; i++) {
-            var d = Math.max(Math.abs(i % cols - cx), Math.abs(((i / cols) | 0) - cy));
-            (function (el, delay) { setTimeout(function () { lit(el, 180); }, delay); })(f.children[i], d * 70 + fi * 110);
-          }
-        });
-      }
-    };
-    var showOrder = ['sparkle', 'sparkle', 'rain', 'sparkle', 'sweep', 'sparkle', 'ring'];
-    var showIdx = 0;
-    (function nextShow() {
-      var name = showOrder[showIdx++ % showOrder.length];
-      if (!busy && !document.hidden && scene.offsetWidth > 0) {
-        var r = scene.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < window.innerHeight) shows[name]();
-      }
-      setTimeout(nextShow, name === 'sparkle' ? 900 : 2600);
-    })();
+    /* idle light = the original index_9 sparkle: 4 random cells, 250ms tick, 700ms hold */
+    setInterval(function () {
+      if (busy || document.hidden || scene.offsetWidth === 0) return;
+      var r = scene.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      for (var i = 0; i < 4; i++) lit(cells[(Math.random() * cells.length) | 0], 700);
+    }, 250);
 
     /* ---- explosion: wave answers the click ---- */
     function explode() {

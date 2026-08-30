@@ -41,7 +41,7 @@
     /* the cube is the zero */
     .scene { width:clamp(120px,18vw,220px); height:clamp(120px,18vw,220px); position:relative; transform-style:preserve-3d; perspective:900px; }
     .cube-burst-wrap, .cube-tilt { position:absolute; inset:0; transform-style:preserve-3d; }
-    .cube-tilt { transform:rotateX(-13deg); transition:transform .35s ease-out; }
+    .cube-tilt { transform:rotateX(-12deg); transition:transform .35s ease-out; }
     .cube { position:absolute; inset:0; transform-style:preserve-3d; animation:cube-spin 20s linear infinite; }
     .cube-dragging .cube { animation-play-state:paused; }
     @keyframes cube-spin { from { transform:rotateY(0deg); } to { transform:rotateY(360deg); } }
@@ -84,7 +84,7 @@
     }
     @media (prefers-reduced-motion:reduce) {
       .cube, .cube-burst .cube-burst-wrap { animation:none; }
-      .cube-tilt { transition:none; transform:rotateX(-13deg) rotateY(24deg); }
+      .cube-tilt { transition:none; transform:rotateX(-12deg) rotateY(24deg); }
     }
   
     /* cube look = index_9 baseline (translucent purple, ink grid) */
@@ -157,7 +157,7 @@
     .mf-cursor-label { opacity: 0; transition: opacity .18s; }
     .mf-cursor.is-cube .mf-cursor-label { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-      .cube-tilt { transform: rotateX(-13deg) rotateY(24deg) !important; transition: none; }
+      .cube-tilt { transform: rotateX(-12deg) rotateY(24deg) !important; transition: none; }
     }
   
   </style>
