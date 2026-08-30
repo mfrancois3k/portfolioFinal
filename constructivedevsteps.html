@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <script>(function(h){h.classList.add("js");setTimeout(function(){h.classList.add("motion-go")},1200)})(document.documentElement)</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Promptopia — Case Study — Michael Francois</title>
-  <meta name="description" content="Case study: Promptopia — a ChatGPT prompt library site and ebook by Michael Francois." />
+  <title>Constructive DevSteps — Case Study — Michael Francois</title>
+  <meta name="description" content="Case study: ConstructiveDevSteps — a nonprofit platform funding infrastructure projects in Haiti, built with Next.js by Michael Francois." />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +73,6 @@
       .band-dark .btn + .btn { border-left-color:var(--yellow); }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
-
     /* ===== cube: original purple-grid look ===== */
     .face {
       background: rgba(28, 12, 46, 0.82) !important;
@@ -157,51 +156,57 @@
       .cube-tilt { transform: rotateX(-13deg) rotateY(24deg) !important; transition: none; }
     }
   
-  </style>
+  
+</style>
 </head>
 <body>
   <header>
     <a class="logo" href="/">MF</a>
-    <div class="crumb">CASE STUDY — PROMPTOPIA</div>
+    <div class="crumb">CASE STUDY — CONSTRUCTIVEDEVSTEPS</div>
     <a class="back-btn" href="/#work">← ALL WORK</a>
   </header>
 
   <div class="case-hero">
-    <div class="ghost" style="top:40px;left:-30px;" aria-hidden="true">PROMPT</div>
-    <h1>Promptopia</h1>
-    <p class="sub">A curated ChatGPT prompt library, shipped as a browsable site with a companion PDF ebook — organized so the right prompt is findable in seconds.</p>
-    <div class="chip-row"><span class="hot">WEB + EBOOK</span><span class="">SIDE PRODUCT</span></div>
-    <div class="btn-row"><a class="btn btn-solid" href="https://github.com/mfrancois3k/promptEbook" target=_blank rel=noopener>VIEW SOURCE</a></div>
+    <div class="ghost" style="top:40px;left:-30px;" aria-hidden="true">HAITI</div>
+    <h1>Constructive DevSteps</h1>
+    <p class="sub">A production nonprofit platform funding community-led infrastructure projects in Haiti — project funding progress, transparency reporting, and a donor portal, live at constructivedevsteps.com.</p>
+    <div class="chip-row"><span class="hot">LIVE NONPROFIT</span><span class="">NEXT.JS</span><span class="">DONOR PORTAL</span><span class="">SOLO BUILD</span></div>
+    <div class="btn-row"><a class="btn btn-solid" href="https://www.constructivedevsteps.com" target=_blank rel=noopener>OPEN LIVE SITE</a><a class="btn" href="mailto:mfrancois3k@gmail.com">GET IN TOUCH</a></div>
   </div>
 
   <section>
     <div class="ghost" style="top:20px;right:-20px;left:auto;" aria-hidden="true">UI</div>
-    <div class="sec-head"><h2>01 / The UI</h2><span class="side-note">FINDABILITY FIRST</span></div>
+    <div class="sec-head"><h2>01 / The UI</h2><span class="side-note">TRUST IS THE PRODUCT</span></div>
     
     <div class="split">
-      <div class="shot"><div class="noshot" style="background:#3d6b35;color:#cde8c7;">PROMPT LIBRARY<br>BY CATEGORY</div></div>
+      <div class="shot"><img src="/assets/case/cds.jpg" alt="ConstructiveDevSteps hero — Empowering the Haitian spirit" /></div>
       <div class="points">
-<div class="point"><b>Organized by job to be done</b><p>Prompts are grouped by category, so users browse by what they're trying to do rather than scrolling a wall of text.</p></div>
-<div class="point"><b>Two formats, one library</b><p>The same content ships as a browsable site and a PDF ebook — read it online or keep it offline.</p></div>
+<div class="point"><b>Editorial hero, human first</b><p>A bold blue panel — “Empowering the Haitian spirit.” — sits over real Haitian landscape photography. The mission leads; the ask (FUND A PROJECT) follows.</p></div>
+<div class="point"><b>Funding progress in the open</b><p>Each active project — a tourism corridor, a water network, a rice cooperative — shows its location and live funding progress. Donors see exactly where money goes.</p></div>
+<div class="point"><b>Four pillars as architecture</b><p>Capital, Capacity, Connectivity, Accountability structure the whole site — every section answers to one of them.</p></div>
+<div class="point"><b>Transparency as navigation</b><p>Impact maps, transparency reports, financial disclosures and governance docs are first-class footer destinations, not buried PDFs.</p></div>
+<div class="point"><b>A full product surface</b><p>Language selector, site search, newsletter capture, and a donor portal login — the chrome of a serious platform, not a brochure.</p></div>
       </div>
     </div>
   </section>
 
   <section class="band-dark">
-    <div class="ghost" style="top:20px;right:-20px;left:auto;" aria-hidden="true">PDF</div>
-    <div class="sec-head"><h2>02 / The Engineering</h2><span class="side-note">CONTENT AS PRODUCT</span></div>
-    <div class="stack-line">HTML · CSS · PDF</div>
+    <div class="ghost" style="top:20px;right:-20px;left:auto;" aria-hidden="true">CODE</div>
+    <div class="sec-head"><h2>02 / The Engineering</h2><span class="side-note">NEXT.JS IN PRODUCTION</span></div>
+    <div class="stack-line">NEXT.JS (APP ROUTER) · REACT · DONOR PORTAL · TRANSPARENCY REPORTING</div>
     <div class="split">
-      <div class="shot"><div class="noshot" style="background:#101115;color:#f5f572;">STATIC SITE + PDF PIPELINE</div></div>
+      <div class="shot"><div class="noshot" style="background:#101115;color:#f5f572;">NEXT.JS APP ROUTER<br>REACT · PRODUCTION DEPLOY</div></div>
       <div class="points">
-<div class="point"><b>Static site</b><p>A lightweight HTML/CSS build — the product is the content, and the engineering keeps it fast and simple.</p></div>
-<div class="point"><b>PDF companion</b><p>The library compiles into a distributable PDF ebook, turning a website into a sellable digital product.</p></div>
-<div class="point"><b>Domain note</b><p>The promptopia.net domain is currently offline — the source remains available, and the site can be redeployed on demand.</p></div>
+<div class="point"><b>Next.js App Router</b><p>Built on the modern Next.js app directory — server components, chunked builds, and route-level code splitting out of the box.</p></div>
+<div class="point"><b>Accessible from the first element</b><p>The document opens with a skip link — keyboard and screen-reader users bypass the chrome and land on content.</p></div>
+<div class="point"><b>Donor portal + gated flows</b><p>Authenticated portal entry point for contributors, separated from the public marketing surface.</p></div>
+<div class="point"><b>Content built to scale</b><p>Projects, contributors, and impact reporting are structured sections — new projects slot into the system rather than new pages being hand-built.</p></div>
+<div class="point"><b>Performance-minded delivery</b><p>Optimized image delivery over full-bleed photography keeps a visually heavy site fast.</p></div>
       </div>
     </div>
   </section>
 
-  <div class="next-strip"><a href="/borderbuddy.html">← BorderBuddy</a><a href="/constructivedevsteps.html">Constructive DevSteps →</a></div>
+  <div class="next-strip"><a href="/promptopia.html">← Promptopia</a><a href="/#contact">Hire me →</a></div>
   <footer><span>© 2026 MICHAEL FRANCOIS</span><span>BROOKLYN, NY</span><span>MFRANCOIS3K@GMAIL.COM</span></footer>
   <script src="/assets/vendor/gsap.min.js"></script>
   <script src="/assets/vendor/ScrollTrigger.min.js"></script>
