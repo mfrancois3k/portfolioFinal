@@ -186,7 +186,7 @@
     .cube {
       position: absolute; inset: 0;
       transform-style: preserve-3d;
-      animation: cube-spin 26s linear infinite;
+      will-change: transform;
     }
     .face {
       position: absolute; width: 280px; height: 280px;
@@ -200,10 +200,14 @@
     .face--back { transform: rotateY(180deg) translateZ(140px); }
     .face--right { transform: rotateY(90deg) translateZ(140px); }
     .face--left { transform: rotateY(-90deg) translateZ(140px); }
-    @keyframes cube-spin {
-      from { transform: rotateX(-12deg) rotateY(0deg); }
-      to { transform: rotateX(-12deg) rotateY(360deg); }
-    }
+    .scene { cursor: grab; touch-action: none; pointer-events: auto; }
+    .scene.cube-grab { cursor: grabbing; }
+    .scene.cube-hover .face { background: rgba(76, 0, 130, 0.2); border-color: rgba(17, 17, 17, 0.4); }
+    .face { transition: background .35s ease, border-color .35s ease; }
+    .face i { transition: background .4s ease-out, filter .4s ease-out; }
+    .face i.active { transition: none; }
+    .scene.cube-pulse { animation: cube-pulse .55s cubic-bezier(.34, 1.56, .64, 1); }
+    @keyframes cube-pulse { 0% { scale: 1; } 35% { scale: 1.09; } 100% { scale: 1; } }
     @media (max-width: 1100px) { .scene { display: none; } }
 
     /* ---------- responsive ---------- */
@@ -234,7 +238,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
-      .cube { transform: rotateX(-12deg) rotateY(24deg); }
+      .cube { animation: none; }
     }
   </style>
 </head>
@@ -255,7 +259,7 @@
     <div class="hero">
       <div class="ghost" style="top:170px;left:-40px;" aria-hidden="true">FRANCOIS</div>
       <div class="hero-main">
-        <div class="scene" aria-hidden="true">
+        <div class="scene" aria-hidden="true" data-cells="100">
           <div class="cube">
             <div class="face face--front"></div>
             <div class="face face--back"></div>
@@ -411,24 +415,9 @@
     </section>
   </main>
 
+  <script src="/assets/cube.js" defer></script>
   <script>
     (function () {
-      // cube cells + random yellow flashes (from the original site's effect)
-      var faces = document.querySelectorAll('.face');
-      faces.forEach(function (f) {
-        for (var i = 0; i < 100; i++) f.appendChild(document.createElement('i'));
-      });
-      var cells = document.querySelectorAll('.face i');
-      if (cells.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        setInterval(function () {
-          for (var i = 0; i < 4; i++) {
-            var c = cells[Math.floor(Math.random() * cells.length)];
-            c.classList.add('active');
-            (function (el) { setTimeout(function () { el.classList.remove('active'); }, 700); })(c);
-          }
-        }, 250);
-      }
-
       var buttons = document.querySelectorAll('.filters button');
       var cards = document.querySelectorAll('.work-card');
       buttons.forEach(function (btn) {
